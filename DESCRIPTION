@@ -1,0 +1,24 @@
+Package: arma.panel.ife
+Type: Package
+Title: ARMA Dynamics in Panel Models with Interactive Effects
+Version: 0.1.0
+Authors@R: c(
+    person("Pablo", "Mones", email = "pm3257@columbia.edu", role = c("aut", "cre")),
+    person("Jushan", "Bai", role = "aut"),
+    person("Yiqun", "Chen", role = "ctb"))
+Description: Gaussian quasi-maximum likelihood and second-moment generalized
+    method of moments estimation for short dynamic panels with autoregressive
+    moving-average dynamics and interactive effects. Supports strictly exogenous
+    regressors in estimation and joint selection of autoregressive order,
+    moving-average order, and factor count without regressors. Implements the
+    methods described in Bai and Mones (2026), 'Likelihood and Order Selection
+    for ARMA Dynamics in Panel Models with Interactive Effects' (manuscript).
+License: GPL-3
+Encoding: UTF-8
+Imports: numDeriv, stats, utils
+NeedsCompilation: no
+Packaged: 2026-11-18 02:26:44 UTC; 14426
+Author: Pablo Mones [aut, cre],
+  Jushan Bai [aut],
+  Yiqun Chen [ctb]
+Maintainer: Pablo Mones <pm3257@columbia.edu>

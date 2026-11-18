@@ -1,0 +1,7 @@
+bibentry(
+  bibtype = "Unpublished",
+  title = "Likelihood and Order Selection for ARMA Dynamics in Panel Models with Interactive Effects",
+  author = c(person("Jushan", "Bai"), person("Pablo", "Mones")),
+  year = "2026",
+  note = "Manuscript dated September 20, 2026, Columbia University"
+)
