@@ -1,8 +1,14 @@
 # arma.panel.ife
 
-QMLE, GMM, efficient GMM, and model-order selection for ARMA panels with
-interactive effects. Version 0.1.0.
+`arma.panel.ife` provides QMLE, GMM, and efficient GMM estimation and
+inference for short ARMA panels with interactive effects, together
+with joint selection of the ARMA orders and number of factors.
 
+This package implements the methods developed in *Likelihood and
+Order Selection for ARMA Dynamics in Panel Models with Interactive
+Effects* by Jushan Bai and Pablo Mones (2026).
+
+Version 0.1.0.
 ## Installation
 
 Install the latest version from GitHub:
