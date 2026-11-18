@@ -6,9 +6,9 @@ Authors@R: c(
     person("Pablo", "Mones", email = "pm3257@columbia.edu", role = c("aut", "cre")),
     person("Jushan", "Bai", role = "aut"),
     person("Yiqun", "Chen", role = "ctb"))
-Description: The package implements methods described in Bai and Mones (2026), 'Likelihood 
+Description: The package implements the methods described in Bai and Mones (2026), 'Likelihood 
 and Order Selection for ARMA Dynamics in Panel Models with Interactive Effects'. We provide
-function for point estimation, inference and model selection for short dynamic panels with 
+functions for point estimation, inference and model selection for short dynamic panels with 
 ARMA dynamics and interactive effects. Estimation is conducted via gaussian quasi-maximum 
 likelihood and second-moment generalizedmethod of moments and supports strictly exogenous 
 regressors. Model selection uses a penalized criterion to select the autoregressive (p) moving 
