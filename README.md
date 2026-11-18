@@ -28,7 +28,6 @@ To download the source code without installing it, visit the
 - `select_model_order_qmle`: QMLE-based order selection.
 - `select_model_order_gmm`: GMM-based order selection.
 
-The estimators accept optional strictly exogenous regressors. Order selection
-does not accept regressors. Each function has an R help page.
+The estimators accept optional strictly exogenous regressors. Each function has an R help page.
 
 License: GPL-3 (GNU General Public License version 3).
