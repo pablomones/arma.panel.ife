@@ -1,5 +1,6 @@
-# arma.panel.ife <img src="man/figures/logo.png" align="right" width="140" alt="arma.panel.ife logo" />
+# arma.panel.ife
 
+<img src="man/figures/logo.png" align="right" width="140" alt="arma.panel.ife logo" />
 `arma.panel.ife` provides QMLE, GMM, and efficient GMM estimation and
 inference for short ARMA panels with interactive effects, together
 with joint selection of the ARMA orders and number of factors.
