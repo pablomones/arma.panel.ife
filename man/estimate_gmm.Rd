@@ -11,9 +11,9 @@ estimate_gmm(Y, p, q, r, W = NULL, heteroskedastic = TRUE, n_starts = 20L,
 }
 \arguments{
 \item{Y}{Required finite numeric N by T matrix: individuals in rows, dates in columns. No missing values.}
-\item{p}{Required nonnegative integer AR order, smaller than T.}
+\item{p}{Required nonnegative integer AR order.}
 \item{q}{Required nonnegative integer MA order.}
-\item{r}{Required nonnegative integer factor count, smaller than T.}
+\item{r}{Required nonnegative integer factor count.}
 \item{W}{Optional finite symmetric positive-definite weighting matrix. Without regressors its dimension is \eqn{m \times m}, where \eqn{m=T(T+1)/2}. With regressors, \eqn{m=T(T+1)/2+kT^2}. \code{NULL} uses the identity matrix. In model selection one weight is shared by all candidates.}
 \item{heteroskedastic}{Logical. If true, estimate \eqn{T-p+q} innovation variances; otherwise estimate one common innovation variance. Default is true.}
 \item{n_starts}{Positive integer number of optimization starts.}
@@ -22,7 +22,7 @@ estimate_gmm(Y, p, q, r, W = NULL, heteroskedastic = TRUE, n_starts = 20L,
 \item{seed}{Optional random seed. Selection derives a seed per candidate. Calls may change the random-number state.}
 \item{verbose}{Print progress.}
 \item{compute_se}{Compute standard errors and confidence intervals; otherwise return missing inference values.}
-\item{warn_dynamic}{Warn about fitted AR/MA roots.}
+\item{warn_dynamic}{Logical. If \code{TRUE}, warn when a root of the fitted AR or MA polynomial lies on, inside, or numerically close to the unit circle (root modulus at most \eqn{1+10^{-8}}{1 + 1e-8}).}
 \item{efficient_weight}{Internal efficient-weight indicator; normally leave FALSE. Use estimate_gmm_efficient for automatic weighting.}
 \item{.warn_T}{Internal time-dimension warning switch; normally leave TRUE.}
 \item{.gmm_data}{Internal precomputed-data input; normally leave NULL.}
