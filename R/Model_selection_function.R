@@ -78,14 +78,14 @@
 #' @param W               Positive definite dot_T x dot_T weighting matrix passed
 #'                        to estimate_gmm(). NULL (default) uses the identity
 #'                        matrix, matching estimate_gmm(). One W is shared by all candidates.
-#' @param n_starts        Number of optimisation restarts per candidate. Default 20.
+#' @param n_starts        Number of optimisation restarts per candidate. Default 15.
 #' @param maxit           Maximum optimiser iterations.  Default 3000.
-#' @param factr           L-BFGS-B tolerance factor for optim(). Default 1e4.
+#' @param factr           L-BFGS-B tolerance factor for optim(). Default 1e6.
 #' @param seed            Root optimizer seed. Each model receives its own seed
 #'                        from model_optimizer_seed(seed,p,q,r). NULL draws one root seed.
 #' @param ndeps           Numerical-gradient step passed to estimation; default 1e-5.
 #' @param start_factr     MA-initialization tolerance passed to estimation; default 1e4.
-#' @param verbose         If TRUE, print per-candidate progress to the console.
+#' @param verbose         If TRUE (default), print candidate and optimization-start progress.
 #' @param stationary,invertible Logical; both default TRUE. TRUE constrains the
 #'   corresponding reflection coefficients to [-0.9999,0.9999], using a
 #'   fixed margin of 1e-4 from +/-1. FALSE uses physical coefficient bounds.
@@ -109,11 +109,11 @@ select_model_order_gmm <- function(
     kappa           = 1,
     heteroskedastic = TRUE,
     W               = NULL,
-    n_starts        = 20L,
+    n_starts        = 15L,
     maxit           = 3000L,
-    factr           = 1e4,
+    factr           = 1e6,
     seed            = NULL,
-    verbose         = FALSE,
+    verbose         = TRUE,
     stationary      = TRUE,
     invertible      = TRUE,
     phi_bound       = 5,
@@ -288,7 +288,7 @@ select_model_order_gmm <- function(
           seed            = optimizer_seed_vec[idx],
           compute_se      = FALSE,
           warn_dynamic    = FALSE,
-          verbose         = FALSE,
+          verbose         = verbose,
           efficient_weight = FALSE,
           .warn_T         = FALSE,  # A6 has already been applied
           .gmm_data       = gmm_data,
@@ -462,11 +462,11 @@ select_model_order_gmm <- function(
 #' @param kappa Finite positive scalar or vector; default 1. Each candidate is
 #'   fitted once irrespective of length(kappa).
 #' @param heteroskedastic Allow time-varying innovation variances; default TRUE.
-#' @param n_starts,maxit,factr Optimization controls; defaults 20, 3000, 1e4.
+#' @param n_starts,maxit,factr Optimization controls; defaults 15, 3000, 1e6.
 #' @param seed Root optimizer seed; model_optimizer_seed gives each candidate
 #'   an order-independent seed. NULL draws one root seed.
 #' @param ndeps,start_factr Estimation controls; defaults 1e-5 and 1e4.
-#' @param verbose Print candidate progress and each selected order.
+#' @param verbose Print candidate and optimization-start progress and each selected order; default TRUE.
 #' @param stationary,invertible Logical; both default TRUE. TRUE constrains the
 #'   corresponding reflection coefficients to [-0.9999,0.9999], using a
 #'   fixed margin of 1e-4 from +/-1. FALSE uses physical coefficient bounds.
@@ -487,11 +487,11 @@ select_model_order_qmle <- function(
     candidates      = NULL,
     kappa           = 1,
     heteroskedastic = TRUE,
-    n_starts        = 20L,
+    n_starts        = 15L,
     maxit           = 3000L,
-    factr           = 1e4,
+    factr           = 1e6,
     seed            = NULL,
-    verbose         = FALSE,
+    verbose         = TRUE,
     stationary      = TRUE,
     invertible      = TRUE,
     phi_bound       = 5,
@@ -651,7 +651,7 @@ select_model_order_qmle <- function(
           seed            = optimizer_seed_vec[idx],
           compute_se      = FALSE,
           warn_dynamic    = FALSE,
-          verbose         = FALSE,
+          verbose         = verbose,
           stationary      = stationary,
           invertible      = invertible,
           phi_bound       = phi_bound,

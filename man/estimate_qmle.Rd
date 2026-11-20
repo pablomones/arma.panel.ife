@@ -7,7 +7,7 @@
 \description{Estimate ARMA panel models with interactive effects, optionally with strictly exogenous regressors.}
 \usage{
 estimate_qmle(Y, p, q, r, heteroskedastic = TRUE, n_starts = 20L, maxit =
-  3000L, factr = 1e4, seed = NULL, verbose = FALSE, compute_se = TRUE,
+  3000L, factr = 1e6, seed = NULL, verbose = TRUE, compute_se = TRUE,
   warn_dynamic = TRUE, phi_start = NULL, hessian_type = c("obs", "info",
   "both"), phi_bound = 5, theta_bound = 5, X = NULL, stationary = TRUE,
   invertible = TRUE, ndeps = 1e-5, start_factr = 1e4)
@@ -20,9 +20,9 @@ estimate_qmle(Y, p, q, r, heteroskedastic = TRUE, n_starts = 20L, maxit =
 \item{heteroskedastic}{Logical. If true, estimate \eqn{T-p+q} innovation variances; otherwise estimate one common innovation variance. Default is true.}
 \item{n_starts}{Positive integer number of optimization starts.}
 \item{maxit}{Maximum optimizer iterations per run.}
-\item{factr}{L-BFGS-B convergence tolerance factor.}
+\item{factr}{L-BFGS-B convergence tolerance factor. Default is \code{1e6}.}
 \item{seed}{Optional random seed. Selection derives a seed per candidate. Calls may change the random-number state.}
-\item{verbose}{Print progress.}
+\item{verbose}{Print progress. Default is \code{TRUE}.}
 \item{compute_se}{Compute standard errors and confidence intervals; otherwise return missing inference values.}
 \item{warn_dynamic}{Logical. If \code{TRUE}, warn when a root of the fitted AR or MA polynomial lies on, inside, or numerically close to the unit circle (root modulus at most \eqn{1+10^{-8}}{1 + 1e-8}).}
 \item{phi_start}{Optional initial AR coefficient vector of length p.}

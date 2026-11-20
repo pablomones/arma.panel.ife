@@ -37,4 +37,12 @@ To download the source code without installing it, visit the
 
 The estimators accept optional strictly exogenous regressors. Each function has an R help page.
 
+## Defaults
+
+All estimation and model-selection functions use `factr = 1e6` and
+`verbose = TRUE`. Model selection uses `n_starts = 15L` per candidate;
+estimation functions use `n_starts = 20L`. Set `verbose = FALSE` to suppress
+progress output. The separate MA-initialization control remains
+`start_factr = 1e4`.
+
 License: GPL-3 (GNU General Public License version 3).

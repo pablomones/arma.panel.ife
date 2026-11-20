@@ -4,8 +4,8 @@
 \description{Jointly select AR order, MA order, and factor count using a penalized fitted loss.}
 \usage{
 select_model_order_qmle(Y, p_range = NULL, q_range = NULL, r_range = NULL,
-  candidates = NULL, kappa = 1, heteroskedastic = TRUE, n_starts = 20L, maxit
-  = 3000L, factr = 1e4, seed = NULL, verbose = FALSE, stationary = TRUE,
+  candidates = NULL, kappa = 1, heteroskedastic = TRUE, n_starts = 15L, maxit
+  = 3000L, factr = 1e6, seed = NULL, verbose = TRUE, stationary = TRUE,
   invertible = TRUE, phi_bound = 5, theta_bound = 5, ndeps = 1e-5, start_factr
   = 1e4)
 }
@@ -17,11 +17,11 @@ select_model_order_qmle(Y, p_range = NULL, q_range = NULL, r_range = NULL,
 \item{candidates}{Optional nonempty list of nonnegative integer triples \code{c(p, q, r)}. Named triples must have exactly the names \code{p}, \code{q}, and \code{r}. Overrides the three ranges. Explicit infeasible triples generate warnings but are still attempted.}
 \item{kappa}{Positive penalty scalar or vector. Each candidate is fitted once for all penalties.}
 \item{heteroskedastic}{Logical. If true, estimate \eqn{T-p+q} innovation variances; otherwise estimate one common innovation variance. Default is true.}
-\item{n_starts}{Positive integer number of optimization starts.}
+\item{n_starts}{Positive integer number of optimization starts per candidate. Default is \code{15L}.}
 \item{maxit}{Maximum optimizer iterations per run.}
-\item{factr}{L-BFGS-B convergence tolerance factor.}
+\item{factr}{L-BFGS-B convergence tolerance factor. Default is \code{1e6}.}
 \item{seed}{Optional random seed. Selection derives a seed per candidate. Calls may change the random-number state.}
-\item{verbose}{Print progress.}
+\item{verbose}{Print progress. Default is \code{TRUE}.}
 \item{stationary}{Constrain AR reflection coefficients to [-0.9999, 0.9999].}
 \item{invertible}{Constrain MA reflection coefficients to [-0.9999, 0.9999].}
 \item{phi_bound}{Positive AR coefficient bound when stationary is FALSE.}
